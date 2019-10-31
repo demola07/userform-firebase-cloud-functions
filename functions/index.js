@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 
 const express = require('express');
 const cors = require('cors');
-const uuidv5 = require('uuid/v4');
+const uuidv5 = require('uuid/v5');
 
 const app = express();
 app.use(cors());
@@ -31,17 +31,6 @@ app.post('/', async (req, res) => {
         })
 })
 
-// app.get('/', (req, res) => {
-//     return admin.database().ref('/entries').on("value", snapshot => {
-//         return res.status(200).json({
-//             status: 200,
-//             data: snapshot.val()
-//         });
-//     }, error => {
-//         console.error(error);
-//         return res.status(500).send('Oh no! Error: ' + error);
-//     });
-// })
 exports.entries = functions.https.onRequest(app)
 
 
