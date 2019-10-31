@@ -31,6 +31,10 @@ app.post('/', async (req, res) => {
         })
 })
 
+app.get('/', (req, res) => {
+    res.send('HelloWorld!!!')
+});
+
 exports.entries = functions.https.onRequest(app)
 
 
